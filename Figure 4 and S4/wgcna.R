@@ -391,7 +391,7 @@ modGenes = data.frame(ensembl.id = genes[inModule],
                       geneTraitSignificance[genes[inModule],],
                       GSPvalue[genes[inModule],])
 
-# Order modules by their significance for fgf21
+# Order modules by their significance for igf1
 modOrder = order(-abs(cor(MEs, traits$hIGF1, use = "p")));
 # Add module membership information in the chosen order
 for (mod in 1:ncol(geneModuleMembership)){
