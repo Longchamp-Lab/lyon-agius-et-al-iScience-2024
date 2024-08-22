@@ -1,0 +1,8 @@
+"","ID","Description","GeneRatio","BgRatio","pvalue","p.adjust","qvalue","geneID","Count"
+"mmu00650","mmu00650","Butanoate metabolism - Mus musculus (house mouse)","1/4","22/6064",0.0144366433728687,0.0387651296972667,NA,"20216",1
+"mmu00900","mmu00900","Terpenoid backbone biosynthesis - Mus musculus (house mouse)","1/4","22/6064",0.0144366433728687,0.0387651296972667,NA,"319554",1
+"mmu00140","mmu00140","Steroid hormone biosynthesis - Mus musculus (house mouse)","1/4","40/6064",0.0261317037450967,0.0387651296972667,NA,"15483",1
+"mmu05204","mmu05204","Chemical carcinogenesis - DNA adducts - Mus musculus (house mouse)","1/4","42/6064",0.0274246994408567,0.0387651296972667,NA,"15483",1
+"mmu00330","mmu00330","Arginine and proline metabolism - Mus musculus (house mouse)","1/4","45/6064",0.029361778343502,0.0387651296972667,NA,"18263",1
+"mmu00980","mmu00980","Metabolism of xenobiotics by cytochrome P450 - Mus musculus (house mouse)","1/4","51/6064",0.0332272540262286,0.0387651296972667,NA,"15483",1
+"mmu00480","mmu00480","Glutathione metabolism - Mus musculus (house mouse)","1/4","64/6064",0.0415628354038563,0.0415628354038563,NA,"18263",1

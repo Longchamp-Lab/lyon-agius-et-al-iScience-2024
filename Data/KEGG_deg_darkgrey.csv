@@ -1,0 +1,6 @@
+"","ID","Description","GeneRatio","BgRatio","pvalue","p.adjust","qvalue","geneID","Count"
+"mmu04920","mmu04920","Adipocytokine signaling pathway - Mus musculus (house mouse)","2/6","63/6064",0.00155130214872641,0.0316325132443008,0.0166486911812109,"384783/14377",2
+"mmu04931","mmu04931","Insulin resistance - Mus musculus (house mouse)","2/6","101/6064",0.00394443357851558,0.0316325132443008,0.0166486911812109,"384783/14377",2
+"mmu04068","mmu04068","FoxO signaling pathway - Mus musculus (house mouse)","2/6","116/6064",0.00517525785450576,0.0316325132443008,0.0166486911812109,"384783/14377",2
+"mmu04152","mmu04152","AMPK signaling pathway - Mus musculus (house mouse)","2/6","117/6064",0.00526292809410365,0.0316325132443008,0.0166486911812109,"384783/14377",2
+"mmu04910","mmu04910","Insulin signaling pathway - Mus musculus (house mouse)","2/6","126/6064",0.00608317562390399,0.0316325132443008,0.0166486911812109,"384783/14377",2
