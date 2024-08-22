@@ -409,7 +409,7 @@ write.csv(geneInfo, paste("WGCNA files/geneInfo_from_",paste(modules,collapse = 
 
 #=====================================================================================
 #
-#  Visualizing Gene Network - Does not work somehow
+#  Visualizing Gene Network
 #
 #=====================================================================================
 
