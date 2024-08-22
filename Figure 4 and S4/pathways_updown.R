@@ -57,7 +57,7 @@ sig_genes_ctrl <- res_ctrl %>%
 
 # save
 sig_genes_ctrl$symbol <- mapIds(org.Mm.eg.db, keys=sig_genes_ctrl$gene_id, keytype="ENSEMBL", column="SYMBOL")
-write.csv(sig_genes_ctrl, file="review/sig_degs_Ctrl_IGF1_vs_Ctrl.csv", row.names=TRUE)
+write.csv(sig_genes_ctrl, file="sig_degs_Ctrl_IGF1_vs_Ctrl.csv", row.names=TRUE)
 
 # For LPHC_IGF1 vs LPHC
 sig_genes_lphc <- res_lphc %>%
@@ -67,7 +67,7 @@ sig_genes_lphc <- res_lphc %>%
 
 # save
 sig_genes_lphc$symbol <- mapIds(org.Mm.eg.db, keys=sig_genes_lphc$gene_id, keytype="ENSEMBL", column="SYMBOL")
-write.csv(sig_genes_lphc, file="review/sig_degs_LPHC_IGF1-vs_LPHC.csv", row.names=TRUE)
+write.csv(sig_genes_lphc, file="sig_degs_LPHC_IGF1-vs_LPHC.csv", row.names=TRUE)
 
 
 # Split up-regulated and down-regulated genes
@@ -137,53 +137,53 @@ ego_down_lphc <- enrichGO(gene = down_genes_lphc_entrez,
 ego_down_lphc_smpld <- simplify(ego_down_lphc, cutoff = 0.7, by = "p.adjust", select_fun = min, measure = "Wang")
 
 # Write the results of the up-regulated genes in Ctrl_IGF1 vs Ctrl to a CSV file
-write.csv(ego_up_ctrl, file="review/ego_up_ctrl.csv", row.names=TRUE)
-write.csv(ego_up_ctrl_smpld, file="review/ego_up_ctrl_smpld.csv", row.names=TRUE)
+write.csv(ego_up_ctrl, file="ego_up_ctrl.csv", row.names=TRUE)
+write.csv(ego_up_ctrl_smpld, file="ego_up_ctrl_smpld.csv", row.names=TRUE)
 
 # Write the results of the down-regulated genes in Ctrl_IGF1 vs Ctrl to a CSV file
-write.csv(ego_down_ctrl, file="review/ego_down_ctrl.csv", row.names=TRUE)
-write.csv(ego_down_ctrl_smpld, file="review/ego_down_ctrl_smpld.csv", row.names=TRUE)
+write.csv(ego_down_ctrl, file="ego_down_ctrl.csv", row.names=TRUE)
+write.csv(ego_down_ctrl_smpld, file="ego_down_ctrl_smpld.csv", row.names=TRUE)
 
 # Write the results of the up-regulated genes in LPHC_IGF1 vs LPHC to a CSV file
-write.csv(ego_up_lphc, file="review/ego_up_lphc.csv", row.names=TRUE)
-write.csv(ego_up_lphc_smpld, file="review/ego_up_lphc_smpld.csv", row.names=TRUE)
+write.csv(ego_up_lphc, file="ego_up_lphc.csv", row.names=TRUE)
+write.csv(ego_up_lphc_smpld, file="ego_up_lphc_smpld.csv", row.names=TRUE)
 
 # Write the results of the down-regulated genes in LPHC_IGF1 vs LPHC to a CSV file
-write.csv(ego_down_lphc, file="review/ego_down_lphc.csv", row.names=TRUE)
-write.csv(ego_down_lphc_smpld, file="review/ego_down_lphc_smpld.csv", row.names=TRUE)
+write.csv(ego_down_lphc, file="ego_down_lphc.csv", row.names=TRUE)
+write.csv(ego_down_lphc_smpld, file="ego_down_lphc_smpld.csv", row.names=TRUE)
 
 
 # Visualization for up-regulated genes in Ctrl_IGF1 vs Ctrl
 plot_up_ctrl <- dotplot(ego_up_ctrl, showCategory = 10) + ggtitle("Up-regulated genes in Ctrl_IGF1 vs Ctrl")
-ggsave(paste0("review/Plots/Up_Ctrl_IGF1_vs_Ctrl.png"), plot = plot_up_ctrl, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Up_Ctrl_IGF1_vs_Ctrl.png"), plot = plot_up_ctrl, dpi = 300, width = 6, height = 5)
 
 # Visualization for down-regulated genes in Ctrl_IGF1 vs Ctrl
 plot_down_ctrl <- dotplot(ego_down_ctrl, showCategory = 20) + ggtitle("Down-regulated genes in Ctrl_IGF1 vs Ctrl")
-ggsave(paste0("review/Plots/Down_Ctrl_IGF1_vs_Ctrl.png"), plot = plot_down_ctrl, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Down_Ctrl_IGF1_vs_Ctrl.png"), plot = plot_down_ctrl, dpi = 300, width = 6, height = 5)
 
 # Visualization for up-regulated genes in LPHC_IGF1 vs LPHC
 plot_up_lphc <- dotplot(ego_up_lphc, showCategory = 10) + ggtitle("Up-regulated genes in LPHC_IGF1 vs LPHC")
-ggsave(paste0("review/Plots/Up_LPHC_IGF1_vs_LPHC.png"), plot = plot_up_lphc, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Up_LPHC_IGF1_vs_LPHC.png"), plot = plot_up_lphc, dpi = 300, width = 6, height = 5)
 
 # Visualization for down-regulated genes in LPHC_IGF1 vs LPHC
 plot_down_lphc <- dotplot(ego_down_lphc, showCategory = 20) + ggtitle("Down-regulated genes in LPHC_IGF1 vs LPHC")
-ggsave(paste0("review/Plots/Down_LPHC_IGF1_vs_LPHC.png"), plot = plot_down_lphc, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Down_LPHC_IGF1_vs_LPHC.png"), plot = plot_down_lphc, dpi = 300, width = 6, height = 5)
 
 # Visualization for up-regulated genes in Ctrl_IGF1 vs Ctrl
 plot_up_ctrl_smpld <- dotplot(ego_up_ctrl_smpld, showCategory = 10) + ggtitle("Up-regulated genes in Ctrl_IGF1 vs Ctrl (Simplified)")
-ggsave(paste0("review/Plots/Up_Ctrl_IGF1_vs_Ctrl_smpld.png"), plot = plot_up_ctrl_smpld, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Up_Ctrl_IGF1_vs_Ctrl_smpld.png"), plot = plot_up_ctrl_smpld, dpi = 300, width = 6, height = 5)
 
 # Visualization for down-regulated genes in Ctrl_IGF1 vs Ctrl
 plot_down_ctrl_smpld <- dotplot(ego_down_ctrl_smpld, showCategory = 10) + ggtitle("Down-regulated genes in Ctrl_IGF1 vs Ctrl (Simplified)")
-ggsave(paste0("review/Plots/Down_Ctrl_IGF1_vs_Ctrl_smpld.png"), plot = plot_down_ctrl_smpld, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Down_Ctrl_IGF1_vs_Ctrl_smpld.png"), plot = plot_down_ctrl_smpld, dpi = 300, width = 6, height = 5)
 
 # Visualization for up-regulated genes in LPHC_IGF1 vs LPHC
 plot_up_lphc_smpld <- dotplot(ego_up_lphc_smpld, showCategory = 10) + ggtitle("Up-regulated genes in LPHC_IGF1 vs LPHC (Simplified)")
-ggsave(paste0("review/Plots/Up_LPHC_IGF1_vs_LPHC_smpld.png"), plot = plot_up_lphc_smpld, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Up_LPHC_IGF1_vs_LPHC_smpld.png"), plot = plot_up_lphc_smpld, dpi = 300, width = 6, height = 5)
 
 # Visualization for down-regulated genes in LPHC_IGF1 vs LPHC
 plot_down_lphc_smpld <- dotplot(ego_down_lphc_smpld, showCategory = 10) + ggtitle("Down-regulated genes in LPHC_IGF1 vs LPHC (Simplified)")
-ggsave(paste0("review/Plots/Down_LPHC_IGF1_vs_LPHC_smpld.png"), plot = plot_down_lphc_smpld, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Down_LPHC_IGF1_vs_LPHC_smpld.png"), plot = plot_down_lphc_smpld, dpi = 300, width = 6, height = 5)
 
 # KEGG enrichment analysis for up-regulated genes in Ctrl_IGF1 vs Ctrl
 kegg_up_ctrl <- enrichKEGG(gene = up_genes_ctrl_entrez, 
@@ -195,7 +195,7 @@ write.csv(kegg_up_ctrl, file="review/kegg_up_ctrl.csv", row.names=TRUE)
 
 # Visualization for KEGG enrichment analysis for up-regulated genes in Ctrl_IGF1 vs Ctrl
 plot_kegg_up_ctrl <- dotplot(kegg_up_ctrl, showCategory = 10) + ggtitle("KEGG Enrichment - Up-regulated genes in Ctrl_IGF1 vs Ctrl")
-ggsave(paste0("review/Plots/KEGG_Up_Ctrl_IGF1_vs_Ctrl.png"), plot = plot_kegg_up_ctrl, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/KEGG_Up_Ctrl_IGF1_vs_Ctrl.png"), plot = plot_kegg_up_ctrl, dpi = 300, width = 6, height = 5)
 
 # KEGG enrichment analysis for down-regulated genes in Ctrl_IGF1 vs Ctrl
 kegg_down_ctrl <- enrichKEGG(gene = down_genes_ctrl_entrez, 
@@ -204,11 +204,11 @@ kegg_down_ctrl <- enrichKEGG(gene = down_genes_ctrl_entrez,
 
 
 # Write the results of the KEGG enrichment analysis for down-regulated genes in Ctrl_IGF1 vs Ctrl to a CSV file
-write.csv(kegg_down_ctrl, file="review/kegg_down_ctrl.csv", row.names=TRUE)
+write.csv(kegg_down_ctrl, file="kegg_down_ctrl.csv", row.names=TRUE)
 
 # Visualization for KEGG enrichment analysis for down-regulated genes in Ctrl_IGF1 vs Ctrl
 plot_kegg_down_ctrl <- dotplot(kegg_down_ctrl, showCategory = 10) + ggtitle("KEGG Enrichment - Down-regulated genes in Ctrl_IGF1 vs Ctrl")
-ggsave(paste0("review/Plots/KEGG_Down_Ctrl_IGF1_vs_Ctrl.png"), plot = plot_kegg_down_ctrl, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/KEGG_Down_Ctrl_IGF1_vs_Ctrl.png"), plot = plot_kegg_down_ctrl, dpi = 300, width = 6, height = 5)
 
 # KEGG enrichment analysis for up-regulated genes in LPHC_IGF1 vs LPHC
 kegg_up_lphc <- enrichKEGG(gene = up_genes_lphc_entrez, 
@@ -216,11 +216,11 @@ kegg_up_lphc <- enrichKEGG(gene = up_genes_lphc_entrez,
                            pvalueCutoff = 0.05)
 
 # Write the results of the KEGG enrichment analysis for up-regulated genes in LPHC_IGF1 vs LPHC to a CSV file
-write.csv(kegg_up_lphc, file="review/kegg_up_lphc.csv", row.names=TRUE)
+write.csv(kegg_up_lphc, file="kegg_up_lphc.csv", row.names=TRUE)
 
 # Visualization for KEGG enrichment analysis for up-regulated genes in LPHC_IGF1 vs LPHC
 plot_kegg_up_lphc <- dotplot(kegg_up_lphc, showCategory = 10) + ggtitle("KEGG Enrichment - Up-regulated genes in LPHC_IGF1 vs LPHC")
-ggsave(paste0("review/Plots/KEGG_Up_LPHC_IGF1_vs_LPHC.png"), plot = plot_kegg_up_lphc, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/KEGG_Up_LPHC_IGF1_vs_LPHC.png"), plot = plot_kegg_up_lphc, dpi = 300, width = 6, height = 5)
 
 # KEGG enrichment analysis for down-regulated genes in LPHC_IGF1 vs LPHC
 kegg_down_lphc <- enrichKEGG(gene = down_genes_lphc_entrez, 
@@ -228,11 +228,11 @@ kegg_down_lphc <- enrichKEGG(gene = down_genes_lphc_entrez,
                              pvalueCutoff = 0.05)
 
 # Write the results of the KEGG enrichment analysis for down-regulated genes in LPHC_IGF1 vs LPHC to a CSV file
-write.csv(kegg_down_lphc, file="review/kegg_down_lphc.csv", row.names=TRUE)
+write.csv(kegg_down_lphc, file="kegg_down_lphc.csv", row.names=TRUE)
 
 # Visualization for KEGG enrichment analysis for down-regulated genes in LPHC_IGF1 vs LPHC
 plot_kegg_down_lphc <- dotplot(kegg_down_lphc, showCategory = 10) + ggtitle("KEGG Enrichment - Down-regulated genes in LPHC_IGF1 vs LPHC")
-ggsave(paste0("review/Plots/KEGG_Down_LPHC_IGF1_vs_LPHC.png"), plot = plot_kegg_down_lphc, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/KEGG_Down_LPHC_IGF1_vs_LPHC.png"), plot = plot_kegg_down_lphc, dpi = 300, width = 6, height = 5)
 
 
 #### Common gene Ctrl and LPHC anaylsis ####
@@ -257,11 +257,11 @@ write.csv(ego_up_common_smpld, file="ego_up_common_smpld.csv", row.names=TRUE)
 
 # Visualization for up-regulated common genes (non-simplified)
 plot_up_common <- dotplot(ego_up_common, showCategory = 10) + ggtitle("Up-regulated common genes between Ctrl and LPHC")
-ggsave(paste0("review/Plots/Up_Common_Genes.png"), plot = plot_up_common, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Up_Common_Genes.png"), plot = plot_up_common, dpi = 300, width = 6, height = 5)
 
 # Visualization for up-regulated common genes (simplified)
 plot_up_common_smpld <- dotplot(ego_up_common_smpld, showCategory = 10) + ggtitle("Up-regulated common genes between Ctrl and LPHC (Simplified)")
-ggsave(paste0("review/Plots/Up_Common_Genes_smpld.png"), plot = plot_up_common_smpld, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Up_Common_Genes_smpld.png"), plot = plot_up_common_smpld, dpi = 300, width = 6, height = 5)
 
 # EnrichGO for down-regulated common genes
 ego_down_common <- enrichGO(gene = down_common_genes,
@@ -281,11 +281,11 @@ write.csv(ego_down_common_smpld, file="ego_down_common_smpld.csv", row.names=TRU
 
 # Visualization for down-regulated common genes (non-simplified)
 plot_down_common <- dotplot(ego_down_common, showCategory = 10) + ggtitle("Down-regulated common genes between Ctrl and LPHC")
-ggsave(paste0("review/Plots/Down_Common_Genes.png"), plot = plot_down_common, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Down_Common_Genes.png"), plot = plot_down_common, dpi = 300, width = 6, height = 5)
 
 # Visualization for down-regulated common genes (simplified)
 plot_down_common_smpld <- dotplot(ego_down_common_smpld, showCategory = 10) + ggtitle("Down-regulated common genes between Ctrl and LPHC (Simplified)")
-ggsave(paste0("review/Plots/Down_Common_Genes_smpld.png"), plot = plot_down_common_smpld, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/Down_Common_Genes_smpld.png"), plot = plot_down_common_smpld, dpi = 300, width = 6, height = 5)
 
 
 ##### EnrichKEGG for up-regulated common genes ####
@@ -298,7 +298,7 @@ write.csv(kegg_up_common, file="kegg_up_common.csv", row.names=TRUE)
 
 # Visualization for up-regulated common genes (non-simplified)
 plot_kegg_up_common <- dotplot(kegg_up_common, showCategory = 10) + ggtitle("KEGG Enrichment - Up-regulated common genes between Ctrl and LPHC")
-ggsave(paste0("review/Plots/KEGG_Up_Common_Genes.png"), plot = plot_kegg_up_common, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/KEGG_Up_Common_Genes.png"), plot = plot_kegg_up_common, dpi = 300, width = 6, height = 5)
 
 # EnrichKEGG for down-regulated common genes
 kegg_down_common <- enrichKEGG(gene = down_common_genes,
@@ -310,7 +310,7 @@ write.csv(kegg_down_common, file="kegg_down_common.csv", row.names=TRUE)
 
 # Visualization for down-regulated common genes (non-simplified)
 plot_kegg_down_common <- dotplot(kegg_down_common, showCategory = 10) + ggtitle("KEGG Enrichment - Down-regulated common genes between Ctrl and LPHC")
-ggsave(paste0("review/Plots/KEGG_Down_Common_Genes.png"), plot = plot_kegg_down_common, dpi = 300, width = 6, height = 5)
+ggsave(paste0("Plots/KEGG_Down_Common_Genes.png"), plot = plot_kegg_down_common, dpi = 300, width = 6, height = 5)
 
 
 ##### heatmap common genes #####
